@@ -147,7 +147,7 @@
     Define: ModelName+Model.class.php // Capitalize the first letter of ModelName.
     
     Sample Home\Model\FormModel.class.php:
-        
+
         <?php
         namespace Home\Model;
         use Think\Model;
@@ -161,7 +161,7 @@
                 array('create_time','time',1,'function'),
                 );
         }
-    
+
     // If we use function 'D' instantiate model class, we need a data model class normally. 'Create' method will execute automatic validate and complete (if defined). If validation failed, we can get information from method 'getError' of model. If succeed, it shows that object is created but just stored in memory until method 'add' is called.
     
     If data is trusted, we can use 'add' directly:
@@ -185,7 +185,7 @@
             // Read data
             $data=$Form->find($id);
             if($data) {
-                $this->assign('data',$data);
+                $this->assign('data',$data);
             }else{
                 $this->error('Error!');
             }
@@ -204,18 +204,18 @@
     Then we can output data in a model:
     
         <table>
-         <tr>
+        <tr>
             <td>id:</td>
             <td>{$data.id}</td>
-         </tr>
-         <tr>
+        </tr>
+        <tr>
             <td>title:</td>
             <td>{$data.title}</td>
-         </tr>
-         <tr>
+        </tr>
+        <tr>
             <td>content:</td>
             <td>{$data.content}</td>
-         </tr>
+        </tr>
         </table>
         
     Another method 'getField':
