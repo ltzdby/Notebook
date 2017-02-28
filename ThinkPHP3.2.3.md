@@ -113,11 +113,12 @@
         'DB_PWD'=>'',
         'DB_PORT'=>3306,
         'DB_PREFIX'=>'think_',
-        'DB_CHARSET'=>'utf8',
+        'DB_CHARSET'=>'utf8',
 
 ## CURD
 
 *   C
+    
     Sample ThinkPHP\Home\Controller\FormController.class.php:
         
         <?
@@ -140,8 +141,11 @@
         }
         
         // If the primary key is A_I, 'add' method will return the value of that primary key. If not, the return value shows the number of data inserted. If the return value is 'false', it means an error.
+
 *   Model Class
+    
     Define: ModelName+Model.class.php // Capitalize the first letter of ModelName.
+    
     Sample Home\Model\FormModel.class.php:
         
         <?php
@@ -159,6 +163,7 @@
         }
     
     // If we use function 'D' instantiate model class, we need a data model class normally. 'Create' method will execute automatic validate and complete (if defined). If validation failed, we can get information from method 'getError' of model. If succeed, it shows that object is created but just stored in memory until method 'add' is called.
+    
     If data is trusted, we can use 'add' directly:
     
         $Form=D('Form');
