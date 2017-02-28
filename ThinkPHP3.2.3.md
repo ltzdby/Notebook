@@ -1,74 +1,74 @@
 # Directory Structure
-root
+    root
 
-├─ThinkPHP
+    ├─ThinkPHP
 
-| ├─Common
+    │ ├─Common
 
-| ├─Conf
+    │ ├─Conf
 
-| ├─Lang
+    │ ├─Lang
 
-| ├─Library
+    │ ├─Library
 
-| | ├─Think
+    │ │ ├─Think
 
-| | ├─Behavior
+    │ │ ├─Behavior
 
-| | ├─Org
+    │ │ ├─Org
 
-| | ├─Vendor
+    │ │ ├─Vendor
 
-| | ├─...
+    │ │ ├─...
 
-| ├─Mode
+    │ ├─Mode
 
-| ├─Tpl
+    │ ├─Tpl
 
-| ├─LICENSE.txt
+    │ ├─LICENSE.txt
 
-| ├─logo.png
+    │ ├─logo.png
 
-| ├─index.php
+    │ ├─index.php
 
-├─Application
+    ├─Application
 
-| ├─Common
+    │ ├─Common
 
-| | ├─Common
+    │ │ ├─Common
 
-| | ├─Conf
+    │ │ ├─Conf
 
-| ├─Module
+    │ ├─Module
 
-| | ├─Conf
+    │ │ ├─Conf
 
-| | ├─Common
+    │ │ ├─Common
 
-| | ├─Controller
+    │ │ ├─Controller
 
-| | ├─Model
+    │ │ ├─Model
 
-| | ├─Logic(Optional)
+    │ │ ├─Logic(Optional)
 
-| | ├─Service(Optional)
+    │ │ ├─Service(Optional)
 
-| | ├─...
+    │ │ ├─...
 
-| | ├─View
+    │ │ ├─View
 
-| ├─Runtime
+    │ ├─Runtime
 
-| | ├─Cache
+    │ │ ├─Cache
 
-| | ├─Data
+    │ │ ├─Data
 
-| | ├─Logs
+    │ │ ├─Logs
 
-| | ├─Temp
+    │ │ ├─Temp
 
-├─www
+    ├─www
 
-| ├─Public
+    │ ├─Public
 
-| ├─index.php
+    │ ├─index.php
