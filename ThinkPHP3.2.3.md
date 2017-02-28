@@ -1,4 +1,6 @@
-# Basic
+# ThinkPHP3.2.3 Study Notes
+
+## Basic
 
 *   Typical Directory Structure
 
@@ -107,7 +109,7 @@
         'DB_TYPE'=>'mysql',
         'DB_HOST'=>'127.0.0.1',
         'DB_NAME'=>'thinkphp',
-        'DB_USER'=>'',
+        'DB_USER'=>'',
         'DB_PWD'=>'',
         'DB_PORT'=>3306,
         'DB_PREFIX'=>'think_',
