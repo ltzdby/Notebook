@@ -1,10 +1,7 @@
 # Directory Structure
     root
-
     ├─ThinkPHP
-
     │ ├─Common
-
     │ ├─Conf
 
     │ ├─Lang
