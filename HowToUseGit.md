@@ -10,9 +10,7 @@
 3. Execute the commands below:
 
         $ git config --global credential.helper wincred
-
         $ git config --global user.name "<Your Name>"
-
         $ git config --global user.email "<email@example.com>"
 
 Note:
