@@ -205,7 +205,7 @@
     
         <table>
         <tr>
-            <td>id:</td>
+            <td>id:</td>
             <td>{$data.id}</td>
         </tr>
         <tr>
@@ -222,4 +222,58 @@
     
         $Form=M("Form");
         $title=$Form->where('id=3')->getField('title');
+        
+*   U
+    
+    Two methods in 'FormController' class:
+    
+        public function edit($id=0){
+            $Form=M('Form');
+            $this->assign('vo',$Form->find($id));
+            $this->display();
+        }
+        public function update(){
+            $Form=D('Form');
+            if($From->create()) {
+                $result=$Form->save();
+                if($result) {
+                    $this->success('Success!');
+                }else{
+                    $this->error('Error!');
+                }
+            }else{
+                $this->error($Form->getError());
+            }
+        }
+        
+    Update without using form:
+        
+        $Form=M('Form');
+        $data['id']=5;
+        $data['title']='ThinkPHP';
+        $data['content']='ThinkPHP3.2.3';
+        $form->where('id=5')->save($data);
+        
+    Or:
+    
+        $Form=M('Form');
+        $Form->title='ThinkPHP';
+        $Form->content='ThinkPHP3.2.3';
+        $Form->where('id=5')->save();
+        
+    The return value of 'save' is the number of rows affected. If it is 'false', an error occurred.
+    
+    Sometimes we only need to modify a field:
+        
+        $Form=M('Form');
+        $Form->where('id=5')->setField('title','ThinkPHP');
+        
+    Or:
+    
+        $User=M('User');
+        $User->where('id=5')->setInc('score',3); // score+=3
+        $User->where('id=5')->setInc('score'); // score++
+        $User->where('id=5')->setDec('score',5); // score-=5
+        $User->where('id=5')->setDec('score'); // score--
+        
         
