@@ -102,9 +102,7 @@
         }
         ?>
 
-*   Read data
-
-    Database connnection in config file in the module:
+*   Database connnection in config file in the module:
 
         'DB_TYPE'=>'mysql',
         'DB_HOST'=>'127.0.0.1',
@@ -117,7 +115,7 @@
 
 ## CURD
 
-*   C
+*   Create
     
     Sample ThinkPHP\Home\Controller\FormController.class.php:
         
@@ -178,15 +176,30 @@
         $Form->content='content';
         $Form->add();
     
-*   R
+*   Read
+    
+    Get data set:
+    
+        namespace Home\Controller;
+        use Think\Controller;
+        class IndexController extends Controller {
+            public function index(){
+                $Data=M('Data'); // Instantiate 'Data' data model.
+                $result=$Data->find(1);
+                $this->assign('result',$result);
+                $this->display();
+            }
+        }
+        
+    A method to get single data:
     
         public function read($id=0){
             $Form=M('Form');
             // Read data
             $data=$Form->find($id);
             if($data) {
-                $this->assign('data',$data);
-            }else{
+                $this->assign('data',$data); // Assign values for template variable.
+            }else{
                 $this->error('Error!');
             }
             $this->display();
@@ -212,18 +225,18 @@
             <td>title:</td>
             <td>{$data.title}</td>
         </tr>
-        <tr>
-            <td>content:</td>
+        <tr>
+            <td>content:</td>
             <td>{$data.content}</td>
         </tr>
         </table>
-        
+
     Another method 'getField':
     
         $Form=M("Form");
         $title=$Form->where('id=3')->getField('title');
         
-*   U
+*   Update
     
     Two methods in 'FormController' class:
     
@@ -274,6 +287,20 @@
         $User->where('id=5')->setInc('score',3); // score+=3
         $User->where('id=5')->setInc('score'); // score++
         $User->where('id=5')->setDec('score',5); // score-=5
-        $User->where('id=5')->setDec('score'); // score--
+        $User->where('id=5')->setDec('score'); // score--
         
-        
+*   Delete
+
+    Delete a single row:
+    
+        $Form=M('Form');
+        $Form->delete(5);
+    
+    'Delete' method can also delete more rows:
+    
+        $User=M("User"); // Instantiate 'User' object.
+        $User->where('id=5')->delete();
+        $User->delete('1,2,5');
+        $User->where('status=0')->delete();
+    
+    The return value of 'delete' is the number of rows deleted. If it is 'false', it means an error occurred.
