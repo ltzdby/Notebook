@@ -565,4 +565,125 @@ Method list:
 *   Execute subquery
     
         $model->table($subQuery.' a')->where()->order()->select();
+    
+## Coherent Operation
+
+*   WHERE
+    
+        where($where)
+    
+*   TABLE
+    
+        $Model->Table('think_user user')->where('status>1')->select();
+        $Model->Table('db_name.think_user user')->where('status>1')->select();
+        $Model->Table(array('think_user'=>'user','think_group'=>'group'))->where('status>1')->select();
+    
+*   DATA
+    
+        $Model->data($data)->add();
+        $Model->data($data)->where('id=3')->save();
+        
+        $this->find(3);
+        $data=$this->data();
+    
+*   FIELD
+    
+        field($field=true,$except=false)
+        
+        $Model->field('id,nickname as name')->select();
+        $Model->field(array('id','nickname'=>'name'))->select();
+        
+        $Model->field(true)->select();
+        
+        $Model->field('status',true)->select();
+    
+*   ORDER
+    
+        order('id desc')
+        order('status desc,id asc')
+        order(array('status'=>'desc','id'))
+    
+*   LIMIT
+    
+        limit('1,10')
+        limit(1,10)
+        limit('10') // =limit('0,10')
+    
+*   PAGE
+    
+        Page('page[,listRows]')
+        Page('2,10')
+        limit(25)->page(3) // Default 'listRows'=limit('length')
+        $this->page(5,25)->select();
+        $this->page('5,25')->select();
+    
+*   GROUP
+    
+        group('user_id')
+    
+*   HAVING
+    
+        having('user_id>0')
+    
+*   JOIN
+    
+        $Model->join(' work ON artist.id=work.artist_id')->join('card ON artist.card_id=card.id')->select();
+        $Model->join('RIGHT JOIN work ON artist.id=work.artist_id')->select(); // Default type is INNER JOIN.
+        join(array(' work ON artist.id=work.artist_id','card ON artist.card_id=card.id')) // If the parameter is array, 'join' can only be used once, and cannot be used with string together.
+    
+*   UNION
+    
+        union($union,$all=false)
+        
+        $Model->field('name')
+              ->table('think_user_0')
+              ->union('SELECT name FROM think_user_1')
+              ->union('SELECT name FROM think_user_2')
+              ->select();
+        
+        $Model->field('name')
+              ->table('think_user_0')
+              ->union(array('field'=>'name','table'=>'think_user_1'))
+              ->union(array('field'=>'name','table'=>'think_user_2'))
+              ->select();
+        
+        $Model->field('name')
+              ->table('think_user_0')
+              ->union(array('SELECT name FROM think_user_1','SELECT name FROM think_user_2'))
+              ->select();
+        
+        $Model->field('name')
+              ->table('think_user_0')
+              ->union('SELECT name FROM think_user_1',true)
+              ->union('SELECT name FROM think_user_2',true)
+              ->select();
+        
+        $Model->field('name')
+              ->table('think_user_0')
+              ->union(array('SELECT name FROM think_user_1','SELECT name FROM think_user_2'),true)
+              ->select();
+    
+*   DISTINCT
+    
+        $Model->Distinct(true)->field('name')->select();
+    
+*   LOCK
+    
+        lock(true)
+    
+*   VALIDATE
+    
+        validate($validate)
+    
+*   AUTO
+    
+        auto($auto)
+    
+*   SCOPE
+    
+        scope($scope)
+    
+*   FILTER
+    
+        $Model->data($data)->filter('strip_tags')->add();
     
