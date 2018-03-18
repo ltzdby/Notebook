@@ -91,9 +91,9 @@ PS: Each level overrides values in the previous level, so values in `.git/config
 
 * git: Your branch and 'origin/master' have diverged ...
 
-    (Caution: You will lose all your commits since your last push)
-    $ git fetch origin
-    $ git reset --hard origin/master
+        (Caution: You will lose all your commits since your last push)
+        $ git fetch origin
+        $ git reset --hard origin/master
 
 ## Something interesting:
 
