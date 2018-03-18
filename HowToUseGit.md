@@ -1,5 +1,6 @@
 # How to use Git
 ## Before beginning
+
 1. (On Windows) Set up a new user environmental variable "HOME" that directs to the directory that you want to store your repositories in Advanced System Settings.
 
     (On Linux) Check the configuration file /etc/gitconfig.
@@ -13,7 +14,7 @@
         $ git config --global user.name "<Your Name>"
         $ git config --global user.email "<email@example.com>"
 
-Note:
+Three Levels of Configuration Files:
 
 * Global config file:
 
@@ -86,7 +87,15 @@ PS: Each level overrides values in the previous level, so values in `.git/config
     $ git check-ignore -v <file> // Check ".gitignore" to find out what's wrong with ".gitignore" and where is the fault.
     $ git config --global alias.<alias> <'original command'> // Create an alias for a command.
 
-Something interesting:
+## FAQ
+
+* git: Your branch and 'origin/master' have diverged ...
+
+    (Caution: You will lose all your commits since your last push)
+    $ git fetch origin
+    $ git reset --hard origin/master
+
+## Something interesting:
 
     $ git config --global alias.last 'log -l'
     $ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
