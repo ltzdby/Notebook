@@ -93,7 +93,7 @@ PS: Each level overrides values in the previous level, so values in `.git/config
 
         (Caution: You will lose all your commits since your last push)
         $ git fetch origin
-        $ git reset --hard origin/master
+        $ git reset --hard origin/<branch>
 
 ## Something interesting:
 
